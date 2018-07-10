@@ -37,8 +37,8 @@ http.createServer(app).listen(port, error => {
 https
   .createServer(
     {
-      key: fs.readFileSync(path.join(__dirname, "certs/key.pem")),
-      cert: fs.readFileSync(path.join(__dirname, "certs/cert.pem"))
+      key: fs.readFileSync(path.join(__dirname, "localhost.pem")),
+      cert: fs.readFileSync(path.join(__dirname, "localhost.pem"))
     },
     app
   )
