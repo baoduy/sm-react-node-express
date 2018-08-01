@@ -1,5 +1,7 @@
 # sm-react-node-express
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/baoduy/sm-react-node-express.svg)](https://greenkeeper.io/)
+
 The Express configuration to host React, Single-Page-App on NodeJS.
 
 ## Hosting on NodeJS
