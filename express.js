@@ -1,24 +1,24 @@
 /*eslint no-console: ["off", { allow: ["warn", "error"] }] */
 
-const express = require("express");
-const http = require("http");
-const https = require("https");
-const fs = require("fs");
-const path = require("path");
-const compression = require("compression");
+const express = require('express');
+const http = require('http');
+const https = require('https');
+const fs = require('fs');
+const path = require('path');
+const compression = require('compression');
 
 const app = express();
 const port = process.env.PORT || 3000;
 const portSsl = process.env.PORT_SSL || 3001;
-const distFolder = "dist";
+const distFolder = 'dist';
 
 app.use(compression());
 
-app.get("*", (req, res, next) => {
+app.get('*', (req, res, next) => {
   //If URL is not a file
-  if (!path.extname(req.url) && req.url !== "/") {
+  if (!path.extname(req.url) && req.url !== '/') {
     console.debug(`redirect the ${req.url} to index.html`);
-    req.url = "/";
+    req.url = '/';
   }
 
   next();
@@ -37,8 +37,8 @@ http.createServer(app).listen(port, error => {
 https
   .createServer(
     {
-      key: fs.readFileSync(path.join(__dirname, "localhost.pem")),
-      cert: fs.readFileSync(path.join(__dirname, "localhost.pem"))
+      key: fs.readFileSync(path.join(__dirname, 'localhost.pem')),
+      cert: fs.readFileSync(path.join(__dirname, 'localhost.pem'))
     },
     app
   )
